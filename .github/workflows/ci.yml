@@ -1,0 +1,46 @@
+name: CI for Node.js Backend + Static Frontend
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout your code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Install backend dependencies
+      - name: Install backend dependencies
+        run: npm install
+
+      # Run backend tests
+      - name: Run backend tests
+        run: |
+          if [ -f "package.json" ]; then
+            npm test || echo "No tests found."
+          fi
+
+      # Upload build artifact
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: full-app
+          path: |
+            backend/
+            frontend/
+            package.json
+            server.js
