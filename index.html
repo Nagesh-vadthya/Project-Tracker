@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Project Tracker</h1>
+            <p>My Personal Productivity Hub</p>
+        </header>
+
+        <main>
+            <section class="add-task">
+                <h2>Add New Task</h2>
+                <form id="taskForm">
+                    <input type="text" id="taskTitle" placeholder="Task title" required>
+                    <textarea id="taskDescription" placeholder="Task description"></textarea>
+                    <button type="submit">Add Task</button>
+                </form>
+            </section>
+
+            <section class="tasks">
+                <h2>Tasks</h2>
+                <div id="taskList"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
