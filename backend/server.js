@@ -6,6 +6,9 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
+//  New CI/CD test log
+console.log("✅ New deployment: Server is running with latest changes!");
+
 // Middleware
 app.use(cors());
 app.use(express.json());
